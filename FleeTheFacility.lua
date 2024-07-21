@@ -363,8 +363,8 @@ end)
 while wait() do
 	local GotComputers = 0
 	
-	if Bright == true and not game.Players.LocalPlayer.Character:FindFirstChild("KH_FullBright") then
-		local NewLight = Instance.new("PointLight", game.Players.LocalPlayer.Character)
+	if Bright == true and not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("KH_FullBright") then
+		local NewLight = Instance.new("PointLight", game.Players.LocalPlayer.Character.HumanoidRootPart)
 		NewLight.Name = "KH_FullBright"
 		NewLight.Range = math.huge
 		NewLight.Brightness = 2.5
