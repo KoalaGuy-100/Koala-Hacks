@@ -1,5 +1,5 @@
--- Social-Koala Hacks, Ver 1.0 - Flee The Facility. Thank You For Using!
-print("Social-Koala Hacks, Ver 1.0 - Flee The Facility. Thank You For Using!")
+-- Koala Hacks, Ver 1.0 - Flee The Facility. Thank You For Using!
+print("Koala Hacks, Ver 1.0 - Flee The Facility. Thank You For Using!")
 
 -- Services
 local UserInputService = game:GetService("UserInputService")
@@ -38,10 +38,10 @@ local ErrorText = Instance.new("TextLabel", UIFrame)
 -- Properties
 
 -- Screen Gui
-ScreenGui.Name = "SocialKoalaHacks_SKH1"
+ScreenGui.Name = "KoalaHacks_KH1"
 
 -- Temporary Instances Folder
-TemporaryInstances.Name = "TempSocialKoalaHacks"
+TemporaryInstances.Name = "TempKoalaHacks"
 
 -- UI Corner 1TI
 UICorner_1TI.Name = "UICorner_1TI"
@@ -180,7 +180,7 @@ ErrorText.Name = "ErrorText"
 ErrorText.Size = UDim2.new(0.9, 0, 0.167, 0)
 ErrorText.Position = UDim2.new(0.05, 0, 0.999, 0)
 ErrorText.BackgroundTransparency = 1
-ErrorText.Text = "Social-Koala Hacks"
+ErrorText.Text = "Koala Hacks"
 ErrorText.TextScaled = true
 
 -- Function
@@ -226,21 +226,21 @@ local ESPPlayers = false
 function CheckPlayerESP()
 	for i, v in pairs(game.Players:GetPlayers()) do
 		if v.Character ~= nil and v ~= game.Players.LocalPlayer then
-			if not v.Character:FindFirstChild("PlayerESP_SKH") and ESPPlayers == true then
+			if not v.Character:FindFirstChild("PlayerESP_KH") and ESPPlayers == true then
 				local PlayerESP = Instance.new("Highlight", v.Character)
-				PlayerESP.Name = "PlayerESP_SKH"
+				PlayerESP.Name = "PlayerESP_KH"
 				PlayerESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				PlayerESP.FillColor = Color3.fromRGB(0, 255, 0)
 				if v.Character:FindFirstChild("BeastPowers") then
 					PlayerESP.FillColor = Color3.fromRGB(255, 0, 0)
 				end
-			elseif v.Character:FindFirstChild("PlayerESP_SKH") and ESPPlayers == true then
-				v.Character.PlayerESP_SKH.FillColor = Color3.fromRGB(0, 255, 0)
+			elseif v.Character:FindFirstChild("PlayerESP_KH") and ESPPlayers == true then
+				v.Character.PlayerESP_KH.FillColor = Color3.fromRGB(0, 255, 0)
 				if v.Character:FindFirstChild("BeastPowers") then
-					v.Character.PlayerESP_SKH.FillColor = Color3.fromRGB(255, 0, 0)
+					v.Character.PlayerESP_KH.FillColor = Color3.fromRGB(255, 0, 0)
 				end
-			elseif ESPPlayers == false and v.Character:FindFirstChild("PlayerESP_SKH") then
-				v.Character.PlayerESP_SKH:Destroy()
+			elseif ESPPlayers == false and v.Character:FindFirstChild("PlayerESP_KH") then
+				v.Character.PlayerESP_KH:Destroy()
 			end
 		end
 	end
@@ -265,23 +265,23 @@ local ESPExitsPods = false
 function CheckExitsPodsESP()
 	for i, v in pairs(game.Workspace:GetDescendants()) do
 		if v.Name == "FreezePod" then
-			if not v:FindFirstChild("FreezePodESP_SKH") and ESPExitsPods == true then
+			if not v:FindFirstChild("FreezePodESP_KH") and ESPExitsPods == true then
 				local PodESP = Instance.new("Highlight", v)
-				PodESP.Name = "FreezePodESP_SKH"
+				PodESP.Name = "FreezePodESP_KH"
 				PodESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				PodESP.FillColor = Color3.fromRGB(0, 150, 255)
-			elseif v:FindFirstChild("FreezePodESP_SKH") and ESPExitsPods == false then
-				v.FreezePodESP_SKH:Destroy()
+			elseif v:FindFirstChild("FreezePodESP_KH") and ESPExitsPods == false then
+				v.FreezePodESP_KH:Destroy()
 			end
 		end
 		if v.Name == "ExitDoor" then
-			if not v:FindFirstChild("ExitDoorESP_SKH") and ESPExitsPods == true then
+			if not v:FindFirstChild("ExitDoorESP_KH") and ESPExitsPods == true then
 				local ExitESP = Instance.new("Highlight", v)
-				ExitESP.Name = "ExitDoorESP_SKH"
+				ExitESP.Name = "ExitDoorESP_KH"
 				ExitESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				ExitESP.FillColor = Color3.fromRGB(0, 255, 150)
-			elseif v:FindFirstChild("ExitDoorESP_SKH") and ESPExitsPods == false then
-				v.ExitDoorESP_SKH:Destroy()
+			elseif v:FindFirstChild("ExitDoorESP_KH") and ESPExitsPods == false then
+				v.ExitDoorESP_KH:Destroy()
 			end
 		end
 	end
@@ -363,13 +363,13 @@ end)
 while wait() do
 	local GotComputers = 0
 	
-	if Bright == true and not game.Players.LocalPlayer.Character:FindFirstChild("SKH_FullBright") then
+	if Bright == true and not game.Players.LocalPlayer.Character:FindFirstChild("KH_FullBright") then
 		local NewLight = Instance.new("PointLight", game.Players.LocalPlayer.Character)
-		NewLight.Name = "SKH_FullBright"
+		NewLight.Name = "KH_FullBright"
 		NewLight.Range = math.huge
 		NewLight.Brightness = 2.5
-	elseif Bright == false and game.Players.LocalPlayer.Character:FindFirstChild("SKH_FullBright") then
-		game.Players.LocalPlayer.Character.SKH_FullBright:Destroy()
+	elseif Bright == false and game.Players.LocalPlayer.Character:FindFirstChild("KH_FullBright") then
+		game.Players.LocalPlayer.Character.KH_FullBright:Destroy()
 	end
 	
 	if Speed ~= -1 then
@@ -380,15 +380,15 @@ while wait() do
 		if v.Name == "ComputerTable" then
 			GotComputers = GotComputers + 1
 
-			if not v:FindFirstChild("ComputerTableESP_SKH") and ESPComputersEnabled == true then
+			if not v:FindFirstChild("ComputerTableESP_KH") and ESPComputersEnabled == true then
 				local ComputerTableESP = Instance.new("Highlight", v)
-				ComputerTableESP.Name = "ComputerTableESP_SKH"
+				ComputerTableESP.Name = "ComputerTableESP_KH"
 				ComputerTableESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				ComputerTableESP.FillColor = v:WaitForChild("Screen").Color
 			elseif ESPComputersEnabled == true then
-				v.ComputerTableESP_SKH.FillColor = v:WaitForChild("Screen").Color
-			elseif  v:FindFirstChild("ComputerTableESP_SKH") then
-				v.ComputerTableESP_SKH:Destroy()
+				v.ComputerTableESP_KH.FillColor = v:WaitForChild("Screen").Color
+			elseif  v:FindFirstChild("ComputerTableESP_KH") then
+				v.ComputerTableESP_KH:Destroy()
 			end
 		end
 	end
