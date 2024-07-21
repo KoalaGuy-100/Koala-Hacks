@@ -355,7 +355,7 @@ game.Players.PlayerRemoving:Connect(function(Plr)
 end)
 
 OnRound.Changed:Connect(function()
-	task.wait(16)
+	task.wait(18)
 	CheckPlayerESP()
 	CheckExitsPodsESP()
 end)
@@ -368,8 +368,8 @@ while wait() do
 		NewLight.Name = "KH_FullBright"
 		NewLight.Range = math.huge
 		NewLight.Brightness = 2.5
-	elseif Bright == false and game.Players.LocalPlayer.Character:FindFirstChild("KH_FullBright") then
-		game.Players.LocalPlayer.Character.KH_FullBright:Destroy()
+	elseif Bright == false and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("KH_FullBright") then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.KH_FullBright:Destroy()
 	end
 	
 	if Speed ~= -1 then
