@@ -1,7 +1,6 @@
 local KHLib = {}
 
--- # CHANGE TO loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.lua"))()
-local UICreator = require(script.Parent.Creator)
+local UICreator = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.lua"))()
 
 function KHLib.new(Location: Instance, ID: string)
 	Location = Location or game.Players.LocalPlayer.PlayerGui
