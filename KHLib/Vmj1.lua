@@ -1,6 +1,7 @@
 local KHLib = {}
 
-local UICreator = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.lua"))()
+-- # CHANGE TO loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.lua"))()
+local UICreator = require(script.Parent.Creator)
 
 function KHLib.new(Location: Instance, ID: string)
 	Location = Location or game.Players.LocalPlayer.PlayerGui
@@ -15,6 +16,7 @@ function KHLib.new(Location: Instance, ID: string)
 	LibUI.Instance = UICreator:Run(Location)
 	LibUI.Title = LibUI.Instance.Main.InfoBar.Title
 	LibUI.Theme = LibUI.Instance.Theme
+	LibUI.DestroyOnClose = false
 	
 	function LibUI.newtab(Name: string, ID: string)
 		-- Safety Check
@@ -109,6 +111,23 @@ function KHLib.new(Location: Instance, ID: string)
 	LibUI.Instance.Main.Tabs.TemplateTab.Visible = false
 	
 	LibUI.Instance.Name = ID or "KHLibUI"
+	
+	LibUI.Instance.Open.MouseButton1Down:Connect(function()
+		LibUI.Instance.Open.Visible = false
+		LibUI.Instance.Main.Visible = true
+	end)
+	LibUI.Instance.Main.InfoBar.MinimizeButton.MouseButton1Down:Connect(function()
+		LibUI.Instance.Open.Visible = true
+		LibUI.Instance.Main.Visible = false
+	end)
+	LibUI.Instance.Main.InfoBar.CloseButton.MouseButton1Down:Connect(function()
+		if LibUI.DestroyOnClose == true then
+			LibUI.Instance:Destroy()
+		else
+			LibUI.Instance.Open.Visible = true
+			LibUI.Instance.Main.Visible = false
+		end
+	end)
 	
 	return LibUI
 end
