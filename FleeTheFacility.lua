@@ -49,9 +49,10 @@ ExtraTab:CreateInput("Activate", "Toggle FullBright.").Activate.MouseButton1Down
 end)
 local Speed = ExtraTab:CreateInput("TextBox", "Input Walk Speed.")
 
-while task.wait() do
+while wait() do
 	-- ESP PLAYERS
 	for i, v in pairs(game.Players:GetPlayers()) do
+		wait()
 		if v.Character ~= nil and v ~= game.Players.LocalPlayer then
 			if not v.Character:FindFirstChild("PlayerESP_KH") and ESP_Players == true then
 				local PlayerESP = Instance.new("Highlight", v.Character)
@@ -74,6 +75,7 @@ while task.wait() do
 	
 	-- ESP PODS & EXITS
 	for i, v in pairs(game.Workspace:GetDescendants()) do
+		wait()
 		if v.Name == "FreezePod" then
 			if not v:FindFirstChild("FreezePodESP_KH") and ESP_PodsExits == true then
 				local PodESP = Instance.new("Highlight", v)
@@ -98,6 +100,7 @@ while task.wait() do
 	
 	-- COMPUTERS
 	for i, v in pairs(game.Workspace:GetDescendants()) do
+		wait()
 		if v.Name == "ComputerTable" then
 			if not v:FindFirstChild("ComputerTableESP_KH") and ESP_Computers == true then
 				local ComputerTableESP = Instance.new("Highlight", v)
