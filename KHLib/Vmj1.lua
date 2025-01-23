@@ -3,27 +3,15 @@ local KHLib = {}
 local UICreator = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.lua"))()
 
 function KHLib.new(Location: Instance, ID: string)
-	Location = Location or game.Players.LocalPlayer.PlayerGui
-	if Location:FindFirstChild(ID or "KHLibUI") then
-		warn("ID Already Exists - KHLib(new)")
-		return
-	end
-	
 	local LibUI = {}
 	
 	-- Functions & Variables
-	LibUI.Instance = UICreator:Run(Location)
+	LibUI.Instance = UICreator:Run(Location or game.Players.LocalPlayer.PlayerGui)
 	LibUI.Title = LibUI.Instance.Main.InfoBar.Title
 	LibUI.Theme = LibUI.Instance.Theme
 	LibUI.DestroyOnClose = false
 	
 	function LibUI.newtab(Name: string, ID: string)
-		-- Safety Check
-		if LibUI.Instance.Main.Tabs:FindFirstChild(ID) then
-			warn("ID Already Exists - KHLib(newtab)")
-			return
-		end
-		
 		local NewTab = {}
 		
 		-- Creation
@@ -61,7 +49,8 @@ function KHLib.new(Location: Instance, ID: string)
 		function NewTab:CreateInput(InputType: string, Label: string, ID: string)
 			local InputTypes = {
 				["ActionTemplate_Activate"] = "Activate",
-				["ActionTemplate_Input"] = "TextBox"
+				["ActionTemplate_Toggle"] = "Toggle",
+				["ActionTemplate_Input"] = "TextBox",
 			}
 			for i, v in pairs(InputTypes) do
 				if InputType == v then
@@ -73,6 +62,19 @@ function KHLib.new(Location: Instance, ID: string)
 			NewInput.Name = ID or "RNG-" .. tostring(math.random(0,99999))
 			NewInput.Label.Text = Label or "No Label."
 			NewInput.Parent = NewTab.Instance
+			
+			if InputType == "ActionTemplate_Toggle" then
+				NewInput.View.BackgroundColor3 = LibUI.Theme["$ToggleColorOff"].Value
+				NewInput.Activate.MouseButton1Down:Connect(function()
+					if NewInput.Input.Value == true then
+						NewInput.Input.Value = false
+						game:GetService("TweenService"):Create(NewInput.View, TweenInfo.new(0.5), {BackgroundColor3 = LibUI.Theme["$ToggleColorOff"].Value}):Play()
+					else
+						NewInput.Input.Value = true
+						game:GetService("TweenService"):Create(NewInput.View, TweenInfo.new(0.5), {BackgroundColor3 = LibUI.Theme["$ToggleColorOn"].Value}):Play()
+					end
+				end)
+			end
 			
 			return NewInput
 		end
