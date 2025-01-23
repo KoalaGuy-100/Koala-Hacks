@@ -28,6 +28,7 @@ KHLib.new(Location: Instance, ID: String)
 | `newtab`         | `Function` | Creates a new tab.                                                        |
 | `Theme`          | `Instance` | The theme folder of the UI.                                               |
 | `DestroyOnClose` | `Boolean`  | If enabled then the user can destroy the UI by pressing the close button. |
+| `UpdateTheme`    | `Function` | Updates the color of the UI if the theme is changed.                      |
 #### Code Example:
 ```lua
 local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
