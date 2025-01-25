@@ -1,3 +1,8 @@
+if game.CoreGui:FindFirstChild("KHui_FTF") then
+	warn("Koala Scripts Has Already Ran, Expect A Lot Of Bugs Or Glitches.")
+	game.CoreGui.KHui_FTF:Destroy()
+end
+
 local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
 local UI = KHLib.new(game.CoreGui, "KHui_FTF")
 
