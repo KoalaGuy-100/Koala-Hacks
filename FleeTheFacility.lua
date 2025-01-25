@@ -1,6 +1,7 @@
 if game.CoreGui:FindFirstChild("KHui_FTF") then
 	warn("Koala Scripts Has Already Ran, Expect A Lot Of Bugs Or Glitches.")
 	game.CoreGui.KHui_FTF:Destroy()
+	task.wait(1)
 end
 
 local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
@@ -137,6 +138,11 @@ UserInputService.InputBegan:Connect(function(Input, GameProcessed)
 end)
 
 while wait() do
+	if not game.CoreGui:FindFirstChild("KHui_FTF") then
+		warn("Koala Script: ENDED.")
+		break
+	end
+	
 	-- # ESP COMPUTERS
 	local GotComputers = 0
 	for i, v in pairs(game.Workspace:GetDescendants()) do
