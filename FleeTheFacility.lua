@@ -152,6 +152,7 @@ while wait() do
 	
 	-- # ANTI PC ERROR
 	if AntiPCError.Value then
+		wait()
 		game.ReplicatedStorage.RemoteEvent:FireServer("SetPlayerMinigameResult", true)
 	end
 	
@@ -168,6 +169,7 @@ while wait() do
 	end
 	
 	-- # PLR SPEED & PLR JUMP POWER
+	wait()
 	if tonumber(PlrSpeed.Text) and game.Players.LocalPlayer.Character then
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(PlrSpeed.Text)
 	elseif tonumber(PlrJumpPower.Text)  and game.Players.LocalPlayer.Character then
