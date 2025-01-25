@@ -1,5 +1,5 @@
 local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
-local UI = KHLib.new(nil, "KHui_FTF")
+local UI = KHLib.new(game.CoreGui, "KHui_FTF")
 
 local UserInputService = game:GetService("UserInputService")
 
