@@ -2,6 +2,12 @@ local KHLib = {}
 
 local UICreator = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.lua"))()
 
+-- # UI Version Checker
+if not table.find(UICreator:GetSupportedVersions("Vmj1"), UICreator:GetVersion()) then
+	warn("D: Something Went Wrong... This Version Is No Longer Supported By The UI. Use The Latest KHLib Version To Keep Your Script Running.")
+	return KHLib
+end
+
 function KHLib.new(Location: Instance, ID: string)
 	local LibUI = {}
 	
