@@ -1,7 +1,7 @@
-if game.CoreGui:FindFirstChild("KHui_TOH")
-  warn("Koala Scripts Has Already Ran, Expect A Lot Of Bugs And Glitches.")
-  game.CoreGui.KHui_TOH:Destroy()
-  task.wait(1)
+if game.CoreGui:FindFirstChild("KHui_TOH") then
+	warn("Koala Scripts Has Already Ran, Expect A Lot Of Bugs And Glitches.")
+	game.CoreGui.KHui_TOH:Destroy()
+	task.wait(1)
 end
 
 local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
@@ -27,7 +27,7 @@ InstantWin.MouseButton1Down:Connect(function()
 	if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 		ForceInvincible = true
-		
+
 		local Tween = game:GetService("TweenService"):Create(
 			game.Players.LocalPlayer.Character.HumanoidRootPart,
 			TweenInfo.new(
@@ -36,7 +36,7 @@ InstantWin.MouseButton1Down:Connect(function()
 			),
 			{CFrame = game.Workspace.tower.sections.finish.exit.ParticleBrick.CFrame}
 		)
-		
+
 		Tween:Play()
 		Tween.Completed:Wait()
 		ForceInvincible = false
@@ -70,28 +70,28 @@ end)
 
 -- # TICK FUNCTION
 while task.wait() do
-  -- # END
-  if not game.CoreGui:FindFirstChild("KHui_TOH")
-    warn("Koala Script: ENDED.")
-    break
-  end
-  
+	-- # END
+	if not game.CoreGui:FindFirstChild("KHui_TOH") then
+		warn("Koala Script: ENDED.")
+		break
+	end
+
 	-- • INVINCIBLE
 	if (PlrInvincible.Value or ForceInvincible) and game.Players.LocalPlayer.Character then
 		if game.Players.LocalPlayer.Character:FindFirstChild("KillScript") then
-			game.Players.LocalPlayer.Character.KillScript.Disabled = true
+		game.Players.LocalPlayer.Character.KillScript.Disabled = true
 		end
 	elseif game.Players.LocalPlayer.Character then
 		if game.Players.LocalPlayer.Character:FindFirstChild("KillScript") then
-			game.Players.LocalPlayer.Character.KillScript.Disabled = false
+		game.Players.LocalPlayer.Character.KillScript.Disabled = false
 		end
 	end
-	
+
 	-- • SPEED
 	if tonumber(PlrSpeed.Text) and game.Players.LocalPlayer.Character then
 		if game.Players.LocalPlayer.Character:FindFirstChild("speedscript") then
 			game.Players.LocalPlayer.Character.speedscript.Disabled = true
-		end
+	end
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(PlrSpeed.Text)
 	elseif game.Players.LocalPlayer.Character then
 		if game.Players.LocalPlayer.Character:FindFirstChild("speedscript") then
@@ -99,7 +99,7 @@ while task.wait() do
 		end
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = game.ReplicatedStorage.globalSpeed.Value
 	end
-	
+
 	-- • JUMP POWER
 	if tonumber(PlrJumpPower.Text) and game.Players.LocalPlayer.Character then
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(PlrJumpPower.Text)
