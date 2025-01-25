@@ -440,11 +440,6 @@ function Module:Run(I2ScrEOFLocation: Instance)
 	I2ScrEOF_ToggleColorOffEOF256id1286.Name = "$ToggleColorOff"
 	I2ScrEOF_ToggleColorOffEOF256id1286.Value = Color3.new(1, 0.34902, 0.34902)
 
-	-- Time Taken: 0.010698499999989508s, Name: VersionUI, Class: StringValue, Variable: I2ScrEOFVersionUIEOF7948id2188 
-	local I2ScrEOFVersionUIEOF7948id2188 = Instance.new("StringValue", I2ScrEOFKHLibUIEOF5288id7329)
-	I2ScrEOFVersionUIEOF7948id2188.Name = "VersionUI"
-	I2ScrEOFVersionUIEOF7948id2188.Value = "v1m.0d22"
-
 	-- Time Taken: 0.055710299999873314s, Name: Open, Class: TextButton, Variable: I2ScrEOFOpenEOF7417id8033 
 	local I2ScrEOFOpenEOF7417id8033 = Instance.new("TextButton", I2ScrEOFKHLibUIEOF5288id7329)
 	I2ScrEOFOpenEOF7417id8033.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
@@ -473,6 +468,22 @@ function Module:Run(I2ScrEOFLocation: Instance)
 	I2ScrEOFUICornerEOF5288id7886.CornerRadius = UDim.new(1, 0)
 	
 	return I2ScrEOFKHLibUIEOF5288id7329
+end
+
+-- # VERSION SUPPORT
+
+function Module:GetSupportedVersions(Name)
+	local Array = {
+		["Vmj1"] = {
+			"v1m.0d22",
+		},
+	}
+	
+	return Array[Name]
+end
+
+function Module:GetVersion()
+	return "v1m.0d22"
 end
 
 return Module
