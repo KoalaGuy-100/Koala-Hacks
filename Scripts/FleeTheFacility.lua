@@ -138,6 +138,7 @@ UserInputService.InputBegan:Connect(function(Input, GameProcessed)
 end)
 
 while wait() do
+	-- # END
 	if not game.CoreGui:FindFirstChild("KHui_FTF") then
 		warn("Koala Script: ENDED.")
 		break
