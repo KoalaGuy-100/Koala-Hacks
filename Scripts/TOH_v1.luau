@@ -4,7 +4,7 @@ if game.CoreGui:FindFirstChild("KHui_TOH") then
 	task.wait(1)
 end
 
-local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
+local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.luau"))()
 local UI = KHLib.new(game.CoreGui, "KHui_TOH")
 
 local UserInputService = game:GetService("UserInputService")
