@@ -1,6 +1,6 @@
 local KHLib = {}
 
-local UICreator = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.lua"))()
+local UICreator = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/CreateUI.luau"))()
 
 -- # UI Version Checker
 if not table.find(UICreator:GetSupportedVersions("Vmj1"), UICreator:GetVersion()) then
