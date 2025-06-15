@@ -97,7 +97,7 @@ while task.wait() do
 		if game.Players.LocalPlayer.Character:FindFirstChild("speedscript") then
 			game.Players.LocalPlayer.Character.speedscript.Disabled = false
 		end
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = game.ReplicatedStorage.globalSpeed.Value
+		-- game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = game.ReplicatedStorage.globalSpeed.Value # disabled (checking)
 	end
 
 	-- • JUMP POWER
