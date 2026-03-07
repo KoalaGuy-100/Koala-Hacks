@@ -9,7 +9,7 @@ function KSLib:GetInfo()
 		library = "KoalaScripts",
 		version = { major = 2, minor = 0, patch = 0 },
 		uiversion = 2,
-		builder = "require",
+		builder = https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/v2.0.0/Builder.luau",
 		executorstested = {}
 	}
 end
