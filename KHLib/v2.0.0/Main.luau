@@ -266,6 +266,8 @@ function LibUI:NewTab(Config)
 		NewAction.Instance.Parent = self.Instance
 		NewAction.Instance.SlideArea.FillBar.AnchorPoint = Vector2.new(0, 0.5)
 		NewAction.Instance.Input.Text = tostring(NewAction.Config.MinValue or 0)
+		NewAction.Instance.Config.SlidePercentage.Value = 0
+		NewAction.Instance.Config.SliderAmount.Value = tostring(NewAction.Config.MinValue or 0)
 
 		function NewAction:Update()
 			NewAction.Instance.Name = NewAction.Config.ID or "Action"
