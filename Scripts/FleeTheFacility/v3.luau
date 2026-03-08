@@ -237,6 +237,10 @@ local AutoRemoveRope = MiscTab:NewActionToggle({
 	Description = "Auto Remove Rope"
 }) 
 
+local BeastCrawl = MiscTab:NewActionToggle({
+	Description = "Allow Crawling when Beast"
+}) 
+
 local AntiPCError = MiscTab:NewActionToggle({
 	Description = "Anti PC Error"
 })
@@ -271,6 +275,12 @@ while task.wait() do
 	
 	if AntiPCError:GetUserInput() then
 		game.ReplicatedStorage.RemoteEvent:FireServer("SetPlayerMinigameResult", true)
+	end
+
+	if BeastCrawl:GetUserInput() and IsThereChar() and game.Players.LocalPlayer.Character:FindFirstChild("CrawlScript") then
+		game.Players.LocalPlayer.Character.CrawlScript.Enabled = true
+	elseif IsThereChar() and game.Players.LocalPlayer.Character:FindFirstChild("BeastPowers") and game.Players.LocalPlayer.Character:FindFirstChild("CrawlScript") then
+		game.Players.LocalPlayer.Character.CrawlScript.Enabled = false
 	end
 	
 	if AutoRemoveRope:GetUserInput() and IsThereChar() and not game.Players.LocalPlayer.Character:FindFirstChild("BeastPowers") then
