@@ -3,7 +3,7 @@ use : loadstring(game:HttpGet("https://github.com/KoalaGuy-100/Koala-Hacks/raw/r
 ver : 3
 ]]--
 
-local KHLib = loadstring(game:HttpGet("https://github.com/KoalaGuy-100/Koala-Hacks/raw/refs/heads/main/KHLib/v2.0.0/Main.luau"))()
+local KHLib = loadstring(game:HttpGet("https://github.com/KoalaGuy-100/Koala-Hacks/raw/refs/heads/main/KHLib/v2.0.x/Main.luau"))()
 local SLoc = game.Players.LocalPlayer.PlayerGui
 local HLoc = game.Workspace
 local Comp = 0
