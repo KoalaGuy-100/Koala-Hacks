@@ -10,7 +10,10 @@ function KSLib:GetInfo()
 		version = { major = 2, minor = 0, patch = 1 },
 		uiversion = 2,
 		builder = "https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/v2.0.x/Builder.luau",
-		executorstested = {}
+		executorstested = {
+			velocity = 0,
+		}
+		-- for executors tested: val: 0 <- working & tested, 1 <- not working & soon to be supported (for a patch), 2 <- not working & not going to be supported in the same major & minor version.
 	}
 end
 
