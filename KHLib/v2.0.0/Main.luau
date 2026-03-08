@@ -7,7 +7,7 @@ LibUI.__index = LibUI
 function KSLib:GetInfo()
 	return {
 		library = "KoalaScripts",
-		version = { major = 2, minor = 0, patch = 0 },
+		version = { major = 2, minor = 0, patch = 1 },
 		uiversion = 2,
 		builder = "https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/v2.0.0/Builder.luau",
 		executorstested = {}
@@ -57,6 +57,7 @@ function KSLib.New(Config)
 	KSLibUI.Instance.Main.Visible = false
 	KSLibUI.Instance.Main.TabArea.Tabs.KH_TemplateTab:Destroy()
 	KSLibUI.Instance.Main.TabSelection.KH_TemplateTab:Destroy()
+	KSLibUI.Instance.Main.TabArea.TabInfoArea.WindowOptions.Minimize.Modal = true
 	
 	KSLibUI.CurrentTab = nil
 	
@@ -69,7 +70,7 @@ function KSLib.New(Config)
 			KSLibUI.Instance.Main.Visible = true
 		end
 	end)
-	
+
 	KSLibUI.Instance.Main.TabArea.TabInfoArea.WindowOptions.Minimize.Activated:Connect(function()
 		if KSLibUI.Instance.Main.Visible then
 			KSLibUI.Instance.Main.Visible = false
