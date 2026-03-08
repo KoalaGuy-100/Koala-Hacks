@@ -276,7 +276,7 @@ while task.wait() do
 	if AutoRemoveRope:GetUserInput() and IsThereChar() and not game.Players.LocalPlayer.Character:FindFirstChild("BeastPowers") then
 		for i, v in pairs(game.Players:GetPlayers()) do
 			if IsThereChar(v) and v.Character:FindFirstChild("BeastPowers") then
-				for i2, v2 in pairs(v:GetDescendants()) do
+				for i2, v2 in pairs(v.Character:GetDescendants()) do
 					if v2:IsA("RopeConstraint") then
 						v2:Destroy()
 					end
@@ -300,13 +300,11 @@ while task.wait() do
 							end
 						end
 						if Found == false then
-							print("WOW")
 							local NewHighlight = Instance.new("Highlight")
 							NewHighlight.FillColor = v2.Screen.Color
 							NewHighlight.Adornee = v2
 							NewHighlight.Parent = v2
 							table.insert(PCHighlights, NewHighlight)
-							print(NewHighlight)
 						end
 					else
 						for i3, v3 in pairs(PCHighlights) do
