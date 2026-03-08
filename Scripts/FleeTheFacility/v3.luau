@@ -23,6 +23,12 @@ local UI = KHLib.New({
 	Title = "Flee The Facility (Koala Scripts)"
 })
 
+game:GetService("UserInputService").InputBegan:Connect(function(Input, GPE)
+	if not GPE and Input.KeyCode == Enum.KeyCode.LeftAlt then
+		UI.Instance.Main.Visible = not UI.Instance.Main.Visible
+	end
+end)
+
 local PlrTab = UI:NewTab({
 	Name = "Player"
 })
