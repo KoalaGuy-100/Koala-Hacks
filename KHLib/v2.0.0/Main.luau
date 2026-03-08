@@ -14,7 +14,7 @@ function KSLib:GetInfo()
 	}
 end
 
-local Builder = require("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/v2.0.0/Builder.luau")
+local Builder = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/v2.0.0/Builder.luau"))()
 local DumpFolder = nil
 
 -- # For Initialization:
