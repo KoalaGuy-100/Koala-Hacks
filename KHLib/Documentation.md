@@ -1,48 +1,65 @@
 # Koala Hacks UI Library Documentation
-A UI Library that makes creating UI for your scripts easier. This is a guide on how to use the library.
+Koala Hacks UI Library is a UI Library that makes users interacting with your scripts easier. This documentation is a guide to use the library.
+<details>
+<summary>Other Information</summary>
+  
+- Library Version: v2.0.x
+- Builder Version: v2
 
-Documentation Version: Vmj1.lua
+  <details>
+  <summary>Available Changelogs</summary>
+  
+  - [v1.0.x -> v2.0.x (Main + Builder)](https://github.com/KoalaGuy-100/Koala-Hacks/blob/main/KHLib/v2.0.x/Changelog.md)
+  </details>
 
+</details>
 
-## Adding The Library To Your Script.
+<br>
+
+## Adding the Library to Your Script
+In order to use the library you must put this to the top of your script:
 ```lua
-local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
-```
-Change the "KHLib" to whatever you want. Then you can access the library using the variable name (KHLib).
+-- You can change the variable name "KHLib" to another name
 
-
-## KHLib.new(), (UI)
-#### Arguments:
-``` lua
-KHLib.new(Location: Instance, ID: String)
+local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/v2.0.x/Main.lua"))()
 ```
-| Argument Name | Type       | Function                                         | Required |
-| :------------ | :--------- | :----------------------------------------------- | :------- |
-| `Location`    | `Instance` | Sets where the parent or the location of the ui. | No       |
-| `ID`          | `String`   | Sets the name of the UI.                         | No       |
-#### Return:
-| Name             | Type       | Function/Description                                                      |
-| :--------------- | :--------- | :------------------------------------------------------------------------ |
-| `Instance`       | `Instance` | The UI itself.                                                            |
-| `Title`          | `Instance` | The title of the user viewed.                                             |
-| `newtab`         | `Function` | Creates a new tab.                                                        |
-| `Theme`          | `Instance` | The theme folder of the UI.                                               |
-| `DestroyOnClose` | `Boolean`  | If enabled then the user can destroy the UI by pressing the close button. |
-| `:UpdateTheme`   | `Function` | Updates the color of the UI if the theme is changed.                      |
-#### Code Example:
+
+<br>
+
+## Initializing the script
+After adding the library to your script, you need to initialize it:
 ```lua
-local KHLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaGuy-100/Koala-Hacks/refs/heads/main/KHLib/Vmj1.lua"))()
-local UI = KHLib.new(game:GetService(CoreGui), "UI_ID")
+KHLib:Initialize() -- Initializes the library for functional use
+```
+This creates a "Dump Folder" this is where the library gets its objects or UI.
 
-UI.Title.Text = "Hello, World!"
+Notes:
+- If the library is already initialized it will throw an error, to prevent this you can use [`KHLib:IsReady()`](#khlibisready)
+- If `KHLib.new()` was used before initializing the library it will throw an error
+
+<br>
+
+## KHLib:GetInfo()
+Returns a table of information about the library. It does not need the library to be first initialized as it is always constant.
+| Element Name      | Description                                                                                                                                                                                                                                                                                                     |
+| :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `builder`         | A string containing the builder link that was used.                                                                                                                                                                                                                                                             |
+| `executorstested` | A table containing all the executors that had been tested with this; if the elements value is 0 it means that it is working and had been tested, if 1 it means it is not working & soon to be supported for a patch, and if it is 2 it means it is not going to be supported in the same major & minor version. |
+| `library`         | A string containing the name of the library                                                                                                                                                                                                                                                                     |
+| `uiversion`       | A number containing the builder's major version that was used for the library.                                                                                                                                                                                                                                  |
+| `version`         | A table with the elements "major", "minor" and "patch" which are all numbers, shows the version of the library.                                                                                                                                                                                                 |
+
+## KHLib:IsReady()
+Checks if the library has already been initialized, or for more specification it checks if it already has a "dump folder"
+
+This function is useless for now as you cannot directly change DumpFolder without using [`KHLib:Initialize()`](#initializing-the-script) nor does it find other dump folder that already exists in the explorer, it only checks if the variable "DumpFolder" is not nil
+
+Example Use:
+```lua
+if not KHLib:IsReady() then -- Checks if the library has not been initialized
+  KHLib:Initialize -- Initializes the library if not initialized
+end
 ```
 
-## UI.newtab(), (Tab)
-#### Arguments:
-``` lua
-UI.newtab(Name: String, ID: String)
-```
-| Argument Name | Type     | Function                                                | Required |
-| :------------ | :------- | :------------------------------------------------------ | :------- |
-| `Name`        | `String` | Sets the label of the Tab. (From The View Of The User.) | No       |
-| `ID`          | `String` | Sets the name of the Tab. (From The View Of The Code.)  | No       |
+## KHLib.New()
+Creates a new UI for users to interact with
